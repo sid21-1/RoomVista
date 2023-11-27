@@ -1,20 +1,19 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
+let defaultLink =
+  "https://images.pexels.com/photos/457882/pexels-photo-457882.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1";
+
 const listingSchema = new Schema({
   title: {
     type: String,
     required: true,
   },
   description: String,
-  images: {
-    default:
-      "https://images.pexels.com/photos/457882/pexels-photo-457882.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+  image: {
+    default: defaultLink,
     type: String,
-    set: (v) =>
-      v === ""
-        ? "https://images.pexels.com/photos/457882/pexels-photo-457882.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-        : v,
+    set: (v) => (v === "" ? defaultLink : v),
   },
   price: Number,
   location: String,

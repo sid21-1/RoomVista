@@ -99,3 +99,13 @@ body {
 .add-btn:hover {
   opacity: 0.9;
 }
+
+/* Edit button */
+.edit-btn{
+  background-color: #fe424d !important;
+  border: none !important;
+}
+
+.edit-btn:hover{
+  opacity: 0.9;
+}
