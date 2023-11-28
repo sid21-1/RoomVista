@@ -109,3 +109,17 @@ body {
 .edit-btn:hover{
   opacity: 0.9;
 }
+
+/* Show section */
+.show-img{
+  height: 30vh;
+}
+
+.btns{
+  display: flex;
+}
+
+.show-card{
+  padding-left:  0;
+  padding-right: 0;
+}
