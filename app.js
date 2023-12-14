@@ -7,6 +7,7 @@ const ejsMate = require("ejs-mate");
 const ExpressError = require("./utils/ExpressError.js");
 // const { error } = require("console");
 const session = require("express-session");
+const flash = require("connect-flash");
 
 const { log } = require("console");
 
@@ -32,6 +33,7 @@ const sessionOptions = {
 };
 
 app.use(session(sessionOptions));
+app.use(flash());
 
 // Connection with the database
 const mongo_url = "mongodb://127.0.0.1:27017/roomvista";
@@ -48,6 +50,13 @@ async function main() {
 // API's
 app.get("/", (req, res) => {
   res.send("hi I am root");
+});
+
+app.use((req, res, next) => {
+  res.locals.success = req.flash("success");
+  res.locals.error = req.flash("error");
+  // console.log(res.locals.success);
+  next();
 });
 
 // listings route
